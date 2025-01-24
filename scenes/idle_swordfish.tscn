@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://kf4udxsvf2bo"]
+
+[ext_resource type="Texture2D" uid="uid://b611dpgr2hthx" path="res://assets/octopus-jellyfish-shark-and-turtle-free-sprite-pixel-art/3/Idle.png" id="1_fxl53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7pqe"]
+atlas = ExtResource("1_fxl53")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7v4g"]
+atlas = ExtResource("1_fxl53")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydx57"]
+atlas = ExtResource("1_fxl53")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbiyn"]
+atlas = ExtResource("1_fxl53")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sggee"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_e7pqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7v4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydx57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbiyn")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci6fq"]
+radius = 6.99973
+height = 45.9982
+
+[node name="Swordfish" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sggee")
+animation = &"new_animation"
+frame_progress = 0.0545619
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 1)
+rotation = -1.57952
+shape = SubResource("CapsuleShape2D_ci6fq")
