@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=8 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
-[ext_resource type="PackedScene" uid="uid://dc5k8auuhrp2p" path="res://scenes/Foreground.tscn" id="2_e2jip"]
-[ext_resource type="PackedScene" uid="uid://kf4udxsvf2bo" path="res://scenes/Swordfish.tscn" id="3_phmej"]
-[ext_resource type="PackedScene" uid="uid://clm6f1cua2kt7" path="res://scenes/Bubble.tscn" id="4_6op5y"]
+[ext_resource type="PackedScene" path="res://scenes/Foreground.tscn" id="2_e2jip"]
+[ext_resource type="PackedScene" uid="uid://4jcsm1xu7qk" path="res://scenes/Swordfish.tscn" id="3_phmej"]
+[ext_resource type="PackedScene" path="res://scenes/Bubble.tscn" id="4_6op5y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l33de"]
 texture = ExtResource("1_rdbjr")
@@ -158,7 +158,7 @@ zoom = Vector2(1.25, 1.25)
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
 position = Vector2(576, 390)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D2" type="Camera2D" parent="."]
 position = Vector2(613, 352)
 zoom = Vector2(1.3, 1.3)
 
