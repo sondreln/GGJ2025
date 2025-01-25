@@ -17,9 +17,11 @@ var dash_speed = 800.0
 var dashing = false
 var dash_target = Vector2()
 
-# Arrow settings
-var arrow_angle = 0.0
-var arrow_speed = 2.0 # Rotation speed in radians per second
+# Dash settings
+var rotation_angle = 0.0 # Swordfish's current rotation
+var rotation_speed = 2.0 # Speed of the up-and-down motion
+var max_rotation_angle = PI / 6 # Maximum angle for up-and-down motion (30 degrees)
+var is_facing_left = false # Tracks the swordfish's facing direction
 
 # Camera settings
 var camera: Camera2D
@@ -51,15 +53,23 @@ func _process(delta):
 		# Bubbles do not despawn anymore, but continue moving
 
 	if not dashing:
-		# Rotate the arrow around the swordfish
-		arrow_angle += arrow_speed * delta
+		 # Adjust the rotation of the swordfish for up-and-down motion
+		rotation_angle = sin(time * rotation_speed) * max_rotation_angle
+		swordfish.rotation = rotation_angle * (-1 if is_facing_left else 1)
 	else:
-		# Dash the swordfish
-		var direction = (dash_target - swordfish.position).normalized()
+		# Dash the swordfish in its pointing direction
+		var adjusted_rotation = swordfish.rotation
+		if is_facing_left:
+			adjusted_rotation = PI + swordfish.rotation  # Mirror rotation when facing left
+	
+		var direction = Vector2(cos(adjusted_rotation), sin(adjusted_rotation))
 		swordfish.position += direction * dash_speed * delta
+		print(swordfish.position.distance_to(dash_target))
+
 		if swordfish.position.distance_to(dash_target) < 5.0:
 			swordfish.position = dash_target
 			dashing = false
+
 
 	# Check for collisions
 	check_collisions()
@@ -83,27 +93,30 @@ func check_collisions():
 			get_tree().reload_current_scene()
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-		if not dashing:
-			# Start a dash in the arrow's direction
-			var arrow_direction = Vector2(cos(arrow_angle), sin(arrow_angle))
-			dash_target = swordfish.position + arrow_direction * 200 # Dash distance
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_SPACE and not dashing:
+			# Calculate adjusted rotation based on facing direction
+			var adjusted_rotation = swordfish.rotation
+			if is_facing_left:
+				adjusted_rotation += PI  # Mirror rotation for left-facing
+
+			# Calculate dash direction
+			var direction = Vector2(cos(adjusted_rotation), sin(adjusted_rotation)).normalized()
+
+			# Calculate dash target
+			dash_target = swordfish.position + direction * 400  # Dash distance
 			dashing = true
+		elif event.keycode == KEY_LEFT:
+			# Switch facing direction to left and flip swordfish
+			is_facing_left = true
+			swordfish.scale.x = -1  # Flip swordfish horizontally
+		elif event.keycode == KEY_RIGHT:
+			# Switch facing direction to right and reset swordfish flip
+			is_facing_left = false
+			swordfish.scale.x = 1  # Reset swordfish to normal orientation
 
 func _draw():
 	# Draw bubbles
 	for bubble in bubbles:
 		var radius = base_radius + sin((time + bubble["time_offset"]) * pulse_speed) * pulse_amplitude
 		draw_circle(bubble["position"], radius, Color(0.5, 0.5, 1))
-
-	# Draw the rotating arrow
-	if not dashing:
-		var arrow_position = swordfish.position + Vector2(cos(arrow_angle), sin(arrow_angle)) * 30
-		draw_triangle(arrow_position, 10, arrow_angle)
-
-func draw_triangle(position, size, rotation):
-	# Helper function to draw a triangular arrow
-	var p1 = position + Vector2(cos(rotation), sin(rotation)) * size
-	var p2 = position + Vector2(cos(rotation + 1.5), sin(rotation + 1.5)) * size * 0.5
-	var p3 = position + Vector2(cos(rotation - 1.5), sin(rotation - 1.5)) * size * 0.5
-	draw_polygon([p1, p2, p3], [Color(0.662745, 0.662745, 0.662745, 1)])
