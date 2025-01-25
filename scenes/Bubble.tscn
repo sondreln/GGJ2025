@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dp8mfog3ml8nu"]
+[gd_scene load_steps=16 format=3 uid="uid://clm6f1cua2kt7"]
 
 [ext_resource type="Texture2D" uid="uid://cklphmvkrmyx0" path="res://assets/sprites/Bubble.png" id="1_gy4am"]
 
@@ -113,5 +113,5 @@ frame_progress = 0.600974
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -4)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_30bbg")
