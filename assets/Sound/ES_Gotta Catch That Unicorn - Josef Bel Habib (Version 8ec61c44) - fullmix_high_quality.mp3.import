@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw4huchcnhtg7"
+path="res://.godot/imported/ES_Gotta Catch That Unicorn - Josef Bel Habib (Version 8ec61c44) - fullmix_high_quality.mp3-e02814d3a2e8063e415d3f84ba457027.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/ES_Gotta Catch That Unicorn - Josef Bel Habib (Version 8ec61c44) - fullmix_high_quality.mp3"
+dest_files=["res://.godot/imported/ES_Gotta Catch That Unicorn - Josef Bel Habib (Version 8ec61c44) - fullmix_high_quality.mp3-e02814d3a2e8063e415d3f84ba457027.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
