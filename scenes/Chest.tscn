@@ -31,4 +31,5 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chest"]
 scale = Vector2(1.25, 1)
 sprite_frames = SubResource("SpriteFrames_cpwho")
+autoplay = "default"
 speed_scale = 0.14
