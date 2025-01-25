@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ktgoviydmfgx" path="res://assets/martine/Shells - 16x16.png" id="6_3tq8n"]
 [ext_resource type="PackedScene" path="res://scenes/Chest.tscn" id="7_fckv1"]
 [ext_resource type="PackedScene" path="res://scenes/Purple_fish.tscn" id="8_uqw7s"]
-[ext_resource type="PackedScene" path="res://scenes/red_fish.tscn" id="9_d0yff"]
-[ext_resource type="PackedScene" path="res://scenes/Hellyfish.tscn" id="10_a1pdj"]
+[ext_resource type="PackedScene" uid="uid://djcpd53agocxp" path="res://scenes/red_fish.tscn" id="9_d0yff"]
+[ext_resource type="PackedScene" uid="uid://bn08nw6vfmbnn" path="res://scenes/Hellyfish.tscn" id="10_a1pdj"]
 [ext_resource type="PackedScene" path="res://scenes/small_bubble.tscn" id="11_gqt6r"]
 [ext_resource type="Texture2D" uid="uid://cniypif6qgbh1" path="res://assets/seagull_animation.png" id="12_ob1q5"]
 
@@ -1249,6 +1249,67 @@ animations = [{
 "name": &"default",
 "speed": 15.0
 }]
+[sub_resource type="Animation" id="Animation_nydv3"]
+resource_name = "swim"
+length = 4.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667, 2.46667, 3, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-52, -112), Vector2(-10, -102), Vector2(-28, -70), Vector2(-78, -84), Vector2(-50, -106)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.06667, 1.73333, 2.46667, 3, 3.76667, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.53058, 1.94604, 3.53953, 4.6897, -0.797615, -0.00174533]
+}
+
+[sub_resource type="Animation" id="Animation_x4uu3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-52, -112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdya8"]
+_data = {
+"RESET": SubResource("Animation_x4uu3"),
+"swim": SubResource("Animation_nydv3")
+}
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-94, -428)
@@ -1292,7 +1353,13 @@ position = Vector2(72, -492)
 position = Vector2(297, -355)
 
 [node name="Area2D3" parent="." instance=ExtResource("10_a1pdj")]
-position = Vector2(-53, -111)
+position = Vector2(-52, -112)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_fdya8")
+}
+autoplay = "swim"
 
 [node name="Bubble" parent="." instance=ExtResource("11_gqt6r")]
 position = Vector2(-32, -180)
