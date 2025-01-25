@@ -5,6 +5,7 @@ var bubbles = []
 var bubble_spawn_interval = 1.0
 var bubble_spawn_timer = 0.0
 var bubble_speed = 100.0
+var bubble = Area2D
 
 # Circle radii
 var base_radius = 50
@@ -13,19 +14,19 @@ var pulse_speed = 2.0
 
 # Swordfish (player)
 var swordfish: CharacterBody2D
-var dash_speed = 800.0
+var dash_speed = 400.0
 var dashing = false
 var dash_target = Vector2()
 
 # Dash settings
 var rotation_angle = 0.0 # Swordfish's current rotation
 var rotation_speed = 2.0 # Speed of the up-and-down motion
-var max_rotation_angle = PI / 6 # Maximum angle for up-and-down motion (30 degrees)
+var max_rotation_angle = PI / 3 # Maximum angle for up-and-down motion (30 degrees)
 var is_facing_left = false # Tracks the swordfish's facing direction
 
 # Camera settings
 var camera: Camera2D
-var camera_speed = 50.0 # Pixels per second
+var camera_speed = 20.0 # Pixels per second
 
 # Time accumulator for animations
 var time = 0.0
@@ -35,6 +36,7 @@ func _ready():
 	# Reference the Swordfish and Camera2D nodes
 	swordfish = $Swordfish
 	camera = $Camera2D
+	bubble = $Bubble
 
 func _process(delta):
 	time += delta
@@ -57,18 +59,27 @@ func _process(delta):
 		rotation_angle = sin(time * rotation_speed) * max_rotation_angle
 		swordfish.rotation = rotation_angle * (-1 if is_facing_left else 1)
 	else:
-		# Dash the swordfish in its pointing direction
+	# Calculate adjusted rotation
 		var adjusted_rotation = swordfish.rotation
 		if is_facing_left:
-			adjusted_rotation = PI + swordfish.rotation  # Mirror rotation when facing left
-	
-		var direction = Vector2(cos(adjusted_rotation), sin(adjusted_rotation))
-		swordfish.position += direction * dash_speed * delta
-		print(swordfish.position.distance_to(dash_target))
+			adjusted_rotation += PI  # Mirror rotation for left-facing
 
-		if swordfish.position.distance_to(dash_target) < 5.0:
-			swordfish.position = dash_target
+	# Calculate dash direction
+		var direction = Vector2(cos(adjusted_rotation), sin(adjusted_rotation)).normalized()
+
+		# Move and check for collisions
+		var collision = swordfish.move_and_collide(direction * dash_speed * delta)
+		if collision:
+		 # Handle collision (e.g., stop the dash, play an effect)
 			dashing = false
+			print("Collided with: ", collision.get_collider())
+		else:
+			# Check if dash target is reached
+			if swordfish.position.distance_to(dash_target) < 5.0:
+				swordfish.position = dash_target
+				dashing = false
+
+
 
 
 	# Check for collisions
@@ -104,7 +115,7 @@ func _input(event):
 			var direction = Vector2(cos(adjusted_rotation), sin(adjusted_rotation)).normalized()
 
 			# Calculate dash target
-			dash_target = swordfish.position + direction * 400  # Dash distance
+			dash_target = swordfish.position + direction * 100  # Dash distance
 			dashing = true
 		elif event.keycode == KEY_LEFT:
 			# Switch facing direction to left and flip swordfish
@@ -117,6 +128,7 @@ func _input(event):
 
 func _draw():
 	# Draw bubbles
-	for bubble in bubbles:
-		var radius = base_radius + sin((time + bubble["time_offset"]) * pulse_speed) * pulse_amplitude
-		draw_circle(bubble["position"], radius, Color(0.5, 0.5, 1))
+	for b in bubbles:
+		var radius = base_radius + sin((time + b["time_offset"]) * pulse_speed) * pulse_amplitude
+		#draw_circle(bubble["position"], radius, Color(0.5, 0.5, 1))
+		
