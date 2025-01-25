@@ -47,7 +47,7 @@ animations = [{
 radius = 6.99973
 height = 45.9982
 
-[node name="Idle_swordfish" type="CharacterBody2D"]
+[node name="Swordfish" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sggee")
