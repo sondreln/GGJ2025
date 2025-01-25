@@ -5,6 +5,7 @@ var bubbles = []
 var bubble_spawn_interval = 1.0
 var bubble_spawn_timer = 0.0
 var bubble_speed = 100.0
+var bubble = Area2D
 
 # Circle radii
 var base_radius = 50
@@ -35,6 +36,7 @@ func _ready():
 	# Reference the Swordfish and Camera2D nodes
 	swordfish = $Swordfish
 	camera = $Camera2D
+	bubble = $Bubble
 
 func _process(delta):
 	time += delta
