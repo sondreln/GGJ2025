@@ -26,7 +26,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 1.8,
 "texture": SubResource("AtlasTexture_e7pqe")
 }, {
 "duration": 1.0,
@@ -47,12 +47,13 @@ animations = [{
 radius = 6.99973
 height = 45.9982
 
-[node name="Swordfish" type="CharacterBody2D"]
+[node name="Idle_swordfish" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sggee")
 animation = &"new_animation"
-frame_progress = 0.0545619
+autoplay = "new_animation"
+frame_progress = 0.439024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 1)
