@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cugh8w0e837jr"]
+[gd_scene load_steps=7 format=3 uid="uid://bn08nw6vfmbnn"]
 
 [ext_resource type="Texture2D" uid="uid://b4c2aysits6mu" path="res://assets/martine/JellyFish.png" id="1_xmidu"]
 
@@ -43,3 +43,4 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d52hs")
 autoplay = "default"
+frame_progress = 0.566391
