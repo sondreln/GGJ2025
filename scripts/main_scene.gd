@@ -21,16 +21,24 @@ var dash_target = Vector2()
 var arrow_angle = 0.0
 var arrow_speed = 2.0 # Rotation speed in radians per second
 
+# Camera settings
+var camera: Camera2D
+var camera_speed = 50.0 # Pixels per second
+
 # Time accumulator for animations
 var time = 0.0
 
 func _ready():
 	set_process(true)
-	# Reference the Swordfish node
+	# Reference the Swordfish and Camera2D nodes
 	swordfish = $Swordfish
+	camera = $Camera2D
 
 func _process(delta):
 	time += delta
+
+	# Move the camera upwards
+	move_camera(delta)
 
 	# Update bubbles
 	bubble_spawn_timer += delta
@@ -40,8 +48,7 @@ func _process(delta):
 
 	for bubble in bubbles:
 		bubble["position"].y -= bubble_speed * delta
-		if bubble["position"].y < -base_radius:
-			bubbles.erase(bubble)
+		# Bubbles do not despawn anymore, but continue moving
 
 	if not dashing:
 		# Rotate the arrow around the swordfish
@@ -60,9 +67,13 @@ func _process(delta):
 	# Request a redraw of the scene
 	queue_redraw()
 
+func move_camera(delta):
+	# Move the camera upwards
+	camera.position.y -= camera_speed * delta
+
 func spawn_bubble():
 	# Spawn a new bubble at a random horizontal position at the bottom
-	var position = Vector2(randi() % 800, 600)
+	var position = Vector2(randi() % 800, camera.position.y + 300) # Spawn near the bottom of the view
 	bubbles.append({"position": position, "time_offset": randi() % 100 / 100.0})
 
 func check_collisions():
@@ -88,12 +99,11 @@ func _draw():
 	# Draw the rotating arrow
 	if not dashing:
 		var arrow_position = swordfish.position + Vector2(cos(arrow_angle), sin(arrow_angle)) * 30
-		draw_line(swordfish.position, arrow_position, Color(1, 1, 0), 2)
 		draw_triangle(arrow_position, 10, arrow_angle)
 
 func draw_triangle(position, size, rotation):
 	# Helper function to draw a triangular arrow
 	var p1 = position + Vector2(cos(rotation), sin(rotation)) * size
-	var p2 = position + Vector2(cos(rotation + 2.5), sin(rotation + 2.5)) * size * 0.5
-	var p3 = position + Vector2(cos(rotation - 2.5), sin(rotation - 2.5)) * size * 0.5
-	draw_polygon([p1, p2, p3], [Color(1, 1, 0)])
+	var p2 = position + Vector2(cos(rotation + 1.5), sin(rotation + 1.5)) * size * 0.5
+	var p3 = position + Vector2(cos(rotation - 1.5), sin(rotation - 1.5)) * size * 0.5
+	draw_polygon([p1, p2, p3], [Color(0.662745, 0.662745, 0.662745, 1)])
