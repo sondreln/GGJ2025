@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dp8mfog3ml8nu"]
+[gd_scene load_steps=15 format=3 uid="uid://clm6f1cua2kt7"]
 
 [ext_resource type="Texture2D" uid="uid://cklphmvkrmyx0" path="res://assets/sprites/Bubble.png" id="1_gy4am"]
 
@@ -109,7 +109,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_0a3b8")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.833237
+frame_progress = 0.600974
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -4)
