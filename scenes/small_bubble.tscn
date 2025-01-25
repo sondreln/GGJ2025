@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0geitk85joj1"]
+
+[ext_resource type="Texture2D" uid="uid://br5ibmkwif456" path="res://assets/martine/Bubble - 8x8.png" id="1_aqah7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqnbn"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1vou"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypf6o"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpi8b"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83edh"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owqva"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv2jw"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx0da"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grvtg"]
+atlas = ExtResource("1_aqah7")
+region = Rect2(64, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ws25x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqnbn")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1vou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypf6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpi8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83edh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owqva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv2jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx0da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grvtg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bubble" type="Area2D"]
+position = Vector2(49, 40)
+
+[node name="Bubble" type="AnimatableBody2D" parent="."]
+position = Vector2(-49, -41)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble"]
+sprite_frames = SubResource("SpriteFrames_ws25x")
+autoplay = "default"
+frame_progress = 0.990744
+speed_scale = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble"]

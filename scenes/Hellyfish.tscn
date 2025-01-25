@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bks8ve0gntkbw"]
+
+[ext_resource type="Texture2D" uid="uid://b4c2aysits6mu" path="res://assets/martine/JellyFish.png" id="1_xmidu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmhaf"]
+atlas = ExtResource("1_xmidu")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jltb7"]
+atlas = ExtResource("1_xmidu")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nga1b"]
+atlas = ExtResource("1_xmidu")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k7n8"]
+atlas = ExtResource("1_xmidu")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d52hs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmhaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jltb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nga1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k7n8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d52hs")
+frame_progress = 0.967737
