@@ -28,6 +28,7 @@ var camera_speed = 20.0 # Pixels per second
 # Time accumulator for animations
 var time = 0.0
 
+
 func _ready():
 	set_process(true)
 	# Reference the Swordfish and Camera2D nodes
