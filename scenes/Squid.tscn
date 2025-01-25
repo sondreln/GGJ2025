@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuvtuxeqgn3f7"]
+
+[ext_resource type="Texture2D" uid="uid://d3w0flxq4x87n" path="res://assets/martine/Squid - 32x16.png" id="1_ddfqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27umi"]
+atlas = ExtResource("1_ddfqi")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p07wl"]
+atlas = ExtResource("1_ddfqi")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwfjb"]
+atlas = ExtResource("1_ddfqi")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie4rs"]
+atlas = ExtResource("1_ddfqi")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_if6at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27umi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p07wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwfjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie4rs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_if6at")
+autoplay = "default"
+frame_progress = 0.175237
