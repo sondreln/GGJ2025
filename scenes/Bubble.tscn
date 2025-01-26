@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://clm6f1cua2kt7"]
+[gd_scene load_steps=17 format=3 uid="uid://dp8mfog3ml8nu"]
 
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_bn4o2"]
 [ext_resource type="Texture2D" uid="uid://cklphmvkrmyx0" path="res://assets/sprites/Bubble.png" id="1_gy4am"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21pxy"]
@@ -103,6 +104,7 @@ animations = [{
 radius = 210.0
 
 [node name="Area2D" type="Area2D"]
+script = ExtResource("1_bn4o2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

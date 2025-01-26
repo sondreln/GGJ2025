@@ -28,6 +28,10 @@ var camera_speed = 40.0 # Pixels per second
 # Time accumulator for animations
 var time = 0.0
 
+# Gravity stuff
+var gravity = 300.0  # Adjust the gravity strength as needed
+var vertical_velocity = 0.0  # Swordfish's current vertical velocity
+
 
 func _ready():
 	set_process(true)
@@ -43,6 +47,12 @@ func _process(delta):
 	if is_charging_dash:
 		# Increase dash power while the spacebar is held, clamped to the maximum power
 		dash_power = clamp(dash_power + delta * 2, 0.0, max_dash_power)
+	
+	if swordfish.position.y < -1700 and not dashing:
+		vertical_velocity += gravity * delta  # Apply gravity
+		swordfish.position.y += vertical_velocity * delta
+	else:
+		vertical_velocity = 0.0  # Reset vertical velocity when above the threshold or during a dash
 
 	# Move the camera upwards
 	move_camera(delta)
@@ -65,6 +75,7 @@ func _process(delta):
 
 	if dashing:
 		# Calculate the direction to the dash target
+		print(dash_target)
 		var direction = (dash_target - swordfish.position).normalized()
 
 		# Rotate swordfish to point in the dash direction
@@ -92,8 +103,14 @@ func _process(delta):
 	queue_redraw()
 
 func move_camera(delta):
-	# Move the camera upwards
-	camera.position.y -= camera_speed * delta
+	# Check if the camera has reached the height where gravity starts
+	if camera.position.y < -1600:
+		var target_y = swordfish.position.y
+		camera.position.y = lerp(camera.position.y, target_y, 0.1)  # Smoothly follow the swordfish
+	else:
+		# Move the camera upwards at a fixed speed
+		camera.position.y -= camera_speed * delta
+
 
 func spawn_bubble():
 	# Spawn a new bubble instance
