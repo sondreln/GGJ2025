@@ -1,18 +1,17 @@
-[gd_scene load_steps=20 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=21 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
-[ext_resource type="PackedScene" uid="uid://dc5k8auuhrp2p" path="res://scenes/Foreground.tscn" id="2_e2jip"]
+[ext_resource type="PackedScene" uid="uid://b70pb37lv8f2h" path="res://scenes/Foreground.tscn" id="2_e2jip"]
 [ext_resource type="PackedScene" uid="uid://kf4udxsvf2bo" path="res://scenes/Swordfish.tscn" id="3_phmej"]
 [ext_resource type="PackedScene" uid="uid://clm6f1cua2kt7" path="res://scenes/Bubble.tscn" id="4_6op5y"]
 [ext_resource type="Texture2D" uid="uid://7r52x0i5den1" path="res://assets/Clouds/Clouds 1/1.png" id="4_ip2c0"]
 [ext_resource type="Texture2D" uid="uid://vp30xfahbpxk" path="res://assets/Clouds/Clouds 1/4.png" id="5_6887o"]
 [ext_resource type="Texture2D" uid="uid://cdr81hs4sjjuw" path="res://assets/Clouds/Clouds 7/1.png" id="6_albxr"]
+[ext_resource type="AudioStream" uid="uid://bw4huchcnhtg7" path="res://assets/Sound/ES_Gotta Catch That Unicorn - Josef Bel Habib (Version 8ec61c44) - fullmix_high_quality.mp3" id="6_e4wrj"]
 [ext_resource type="Texture2D" uid="uid://ci3wmcx4ynv4" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="7_wbfja"]
 [ext_resource type="Texture2D" uid="uid://d26mpys5a6aly" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Planets/PNGs/Earth-Like planet - Without back glow.png" id="8_n0qve"]
 [ext_resource type="Texture2D" uid="uid://cdyb7pvvbsdt" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="9_56s8i"]
-[ext_resource type="PackedScene" uid="uid://dp8mfog3ml8nu" path="res://scenes/Bubble.tscn" id="4_6op5y"]
-[ext_resource type="AudioStream" uid="uid://bw4huchcnhtg7" path="res://assets/Sound/ES_Gotta Catch That Unicorn - Josef Bel Habib (Version 8ec61c44) - fullmix_high_quality.mp3" id="6_e4wrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l33de"]
 texture = ExtResource("1_rdbjr")
