@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=21 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ci3wmcx4ynv4" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="7_wbfja"]
 [ext_resource type="Texture2D" uid="uid://d26mpys5a6aly" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Planets/PNGs/Earth-Like planet - Without back glow.png" id="8_n0qve"]
 [ext_resource type="Texture2D" uid="uid://cdyb7pvvbsdt" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="9_56s8i"]
+[ext_resource type="PackedScene" uid="uid://uw01ysrodl8v" path="res://scenes/Space.tscn" id="12_i88wd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l33de"]
 texture = ExtResource("1_rdbjr")
@@ -11215,3 +11216,6 @@ position = Vector2(576, 390)
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_e4wrj")
 autoplay = true
+
+[node name="Node2D2" parent="." instance=ExtResource("12_i88wd")]
+position = Vector2(515, -4194)
