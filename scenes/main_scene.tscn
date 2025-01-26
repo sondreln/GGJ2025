@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=25 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
-[ext_resource type="PackedScene" uid="uid://dc5k8auuhrp2p" path="res://scenes/Foreground.tscn" id="2_e2jip"]
+[ext_resource type="PackedScene" uid="uid://b70pb37lv8f2h" path="res://scenes/Foreground.tscn" id="2_e2jip"]
 [ext_resource type="PackedScene" uid="uid://kf4udxsvf2bo" path="res://scenes/Swordfish.tscn" id="3_phmej"]
 [ext_resource type="Texture2D" uid="uid://7r52x0i5den1" path="res://assets/Clouds/Clouds 1/1.png" id="4_ip2c0"]
 [ext_resource type="Texture2D" uid="uid://vp30xfahbpxk" path="res://assets/Clouds/Clouds 1/4.png" id="5_6887o"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ci3wmcx4ynv4" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="7_wbfja"]
 [ext_resource type="Texture2D" uid="uid://d26mpys5a6aly" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Planets/PNGs/Earth-Like planet - Without back glow.png" id="8_n0qve"]
 [ext_resource type="Texture2D" uid="uid://cdyb7pvvbsdt" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="9_56s8i"]
-[ext_resource type="PackedScene" uid="uid://uw01ysrodl8v" path="res://scenes/Space.tscn" id="12_i88wd"]
+[ext_resource type="PackedScene" path="res://scenes/Space.tscn" id="12_i88wd"]
+[ext_resource type="AudioStream" uid="uid://bg85t8g2pj0pk" path="res://assets/Sound/Nytt opptak 4,Nytt opptak 5,Nytt opptak 6/Nytt opptak 6.mp3" id="13_02wbn"]
+[ext_resource type="AudioStream" uid="uid://j6ylak75gxrr" path="res://assets/Sound/Jonas WIII 2.mp3" id="14_kgcrt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knj7i"]
 texture = ExtResource("1_rdbjr")
@@ -11348,12 +11350,20 @@ tile_set = SubResource("TileSet_t2uuo")
 position = Vector2(428, 558)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(626, -704)
+position = Vector2(622, 380)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
-position = Vector2(603, -695)
+position = Vector2(419, 487)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_e4wrj")
+volume_db = -15.352
 autoplay = true
+
+[node name="Charge1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_02wbn")
+
+[node name="Wiii" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_kgcrt")
+volume_db = 2.476

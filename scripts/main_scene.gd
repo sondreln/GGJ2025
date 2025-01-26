@@ -25,6 +25,10 @@ var is_charging_dash = false
 var camera: Camera2D
 var camera_speed = 40.0 # Pixels per second
 
+# Sounds
+var charge1: AudioStreamPlayer2D
+var wiii: AudioStreamPlayer2D
+
 # Time accumulator for animations
 var time = 0.0
 
@@ -34,6 +38,8 @@ func _ready():
 	# Reference the Swordfish and Camera2D nodes
 	swordfish = $Swordfish
 	camera = $Camera2D
+	charge1 = $Charge1
+	wiii = $Wiii
 
 	# Load the bubble scene
 	bubble_scene = preload("res://scenes/Bubble.tscn")  # Path to your Bubble.tscn
@@ -73,18 +79,29 @@ func _process(delta):
 		# Move and check for collisions
 		var collision = swordfish.move_and_collide(direction * dash_speed * delta)
 		if collision:
-			# Handle collision (e.g., stop the dash, play an effect)
+			# Handle collision with specific objects
+			var collider = collision.get_collider()  # The object the swordfish collided with
+			
+			if collider.has_method("is_collision_boundary"):  # Check for a specific method or property
+				print("Collided with collision boundary from another scene!")
+				get_tree().reload_current_scene()  # Reload scene on collision boundary hit
+			else:
+				
+				print("Collided with: ", collider.name)  # Debugging information
+
+			# Stop dashing after collision
 			dashing = false
-			print("Collided with: ", collision.get_collider())
 		else:
 			# Check if dash target is reached
 			if swordfish.position.distance_to(dash_target) < 5.0:
 				swordfish.position = dash_target
 				dashing = false
 
+
 	if not dashing and not is_charging_dash:
 		# Reset swordfish to horizontal idle position (facing right)
 		swordfish.rotation = 0.0
+		
 
 	# Check for collisions
 	check_collisions()
@@ -111,9 +128,15 @@ func check_collisions():
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_SPACE:
 		if event.pressed:
+			if not charge1.playing:
+				charge1.play()  # Start playing the sound
 			is_charging_dash = true
 		else:
 			is_charging_dash = false
+			if charge1.playing:
+				charge1.stop()  # Stop the sound
+			wiii.play()
+
 			# Calculate the dash distance based on the charge power
 			var dash_distance = dash_power * 200.0  # Scale the power to a meaningful dash distance
 
@@ -131,6 +154,7 @@ func _input(event):
 			# Determine if the swordfish should face left or right
 			var is_facing_left = dash_target.x < swordfish.position.x
 			swordfish.scale.x = -1 if is_facing_left else 1
+
 
 func _draw():
 	# Draw the dash power bar above the swordfish

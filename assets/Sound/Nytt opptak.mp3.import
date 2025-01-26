@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj8rv4kwqwo0o"
+path="res://.godot/imported/Nytt opptak.mp3-1c6936b109a5241f8ba8dfb7a4dfcd58.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound/Nytt opptak.mp3"
+dest_files=["res://.godot/imported/Nytt opptak.mp3-1c6936b109a5241f8ba8dfb7a4dfcd58.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dc5k8auuhrp2p"]
+[gd_scene load_steps=35 format=4 uid="uid://b70pb37lv8f2h"]
 
 [ext_resource type="Script" path="res://scripts/foreground.gd" id="1_0wsor"]
 [ext_resource type="Texture2D" uid="uid://towkhjg6dm27" path="res://assets/martine/Abyss.png" id="1_rpndc"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ktgoviydmfgx" path="res://assets/martine/Shells - 16x16.png" id="6_3tq8n"]
 [ext_resource type="PackedScene" path="res://scenes/Chest.tscn" id="7_fckv1"]
 [ext_resource type="PackedScene" path="res://scenes/Purple_fish.tscn" id="8_uqw7s"]
-[ext_resource type="PackedScene" uid="uid://djcpd53agocxp" path="res://scenes/red_fish.tscn" id="9_d0yff"]
-[ext_resource type="PackedScene" uid="uid://bn08nw6vfmbnn" path="res://scenes/Hellyfish.tscn" id="10_a1pdj"]
+[ext_resource type="PackedScene" path="res://scenes/red_fish.tscn" id="9_d0yff"]
+[ext_resource type="PackedScene" path="res://scenes/Hellyfish.tscn" id="10_a1pdj"]
 [ext_resource type="PackedScene" path="res://scenes/small_bubble.tscn" id="11_gqt6r"]
 [ext_resource type="Texture2D" uid="uid://cniypif6qgbh1" path="res://assets/seagull_animation.png" id="12_ob1q5"]
 [ext_resource type="Script" path="res://scripts/seagull.gd" id="14_h6cwx"]
