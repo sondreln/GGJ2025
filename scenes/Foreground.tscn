@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b70pb37lv8f2h"]
+[gd_scene load_steps=35 format=4 uid="uid://b70pb37lv8f2h"]
 
 [ext_resource type="Script" path="res://scripts/foreground.gd" id="1_0wsor"]
 [ext_resource type="Texture2D" uid="uid://towkhjg6dm27" path="res://assets/martine/Abyss.png" id="1_rpndc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" path="res://scenes/Hellyfish.tscn" id="10_a1pdj"]
 [ext_resource type="PackedScene" path="res://scenes/small_bubble.tscn" id="11_gqt6r"]
 [ext_resource type="Texture2D" uid="uid://cniypif6qgbh1" path="res://assets/seagull_animation.png" id="12_ob1q5"]
+[ext_resource type="Script" path="res://scripts/seagull.gd" id="14_h6cwx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k56al"]
 texture = ExtResource("1_rpndc")
@@ -1312,3 +1313,4 @@ position = Vector2(425, -1375)
 [node name="Seagull" type="AnimatedSprite2D" parent="."]
 position = Vector2(-92, -2794)
 sprite_frames = SubResource("SpriteFrames_mr0s2")
+script = ExtResource("14_h6cwx")

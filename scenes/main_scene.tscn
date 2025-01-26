@@ -11207,7 +11207,7 @@ tile_map_data = PackedByteArray("AAD9//3/AAAGAAoAAAD9//7/AAAGAAoAAAD9////AAAGAAo
 tile_set = SubResource("TileSet_t2uuo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(613, 352)
+position = Vector2(629, -1828)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
