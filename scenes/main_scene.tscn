@@ -1,9 +1,11 @@
+[gd_scene load_steps=24 format=4 uid="uid://cxpgn18h3a26b"]
 [gd_scene load_steps=25 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
 [ext_resource type="PackedScene" uid="uid://b70pb37lv8f2h" path="res://scenes/Foreground.tscn" id="2_e2jip"]
 [ext_resource type="PackedScene" uid="uid://kf4udxsvf2bo" path="res://scenes/Swordfish.tscn" id="3_phmej"]
+[ext_resource type="PackedScene" uid="uid://dp8mfog3ml8nu" path="res://scenes/Bubble.tscn" id="4_6op5y"]
 [ext_resource type="Texture2D" uid="uid://7r52x0i5den1" path="res://assets/Clouds/Clouds 1/1.png" id="4_ip2c0"]
 [ext_resource type="Texture2D" uid="uid://vp30xfahbpxk" path="res://assets/Clouds/Clouds 1/4.png" id="5_6887o"]
 [ext_resource type="Texture2D" uid="uid://cdr81hs4sjjuw" path="res://assets/Clouds/Clouds 7/1.png" id="6_albxr"]
@@ -11350,20 +11352,48 @@ tile_set = SubResource("TileSet_t2uuo")
 position = Vector2(428, 558)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(622, 380)
+position = Vector2(626, -704)
 zoom = Vector2(1.5, 1.5)
 
+[node name="BubbleFriends" type="RichTextLabel" parent="."]
+offset_left = 347.0
+offset_top = -1702.0
+offset_right = 542.0
+offset_bottom = -1640.0
+text = "THE BUBBLES ARE
+NOW YOUR FRIENDS"
+scroll_active = false
+tab_size = 9
+
+[node name="Bubble1" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(454, -1880)
+
+[node name="Bubble2" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(480, -2327)
+
+[node name="Bubble3" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(695, -2095)
+
+[node name="Bubble4" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(505, -2738)
+
+[node name="Bubble5" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(754, -2538)
+
+[node name="Bubble6" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(486, -3489)
+
+[node name="Bubble7" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(730, -3255)
+
+[node name="Bubble8" parent="." instance=ExtResource("4_6op5y")]
+position = Vector2(739, -2971)
+
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
-position = Vector2(419, 487)
+position = Vector2(603, -695)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-98, -1264)
 stream = ExtResource("6_e4wrj")
 volume_db = -15.352
 autoplay = true
-
-[node name="Charge1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_02wbn")
-
-[node name="Wiii" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_kgcrt")
-volume_db = 2.476
