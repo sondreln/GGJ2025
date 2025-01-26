@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://b70pb37lv8f2h"]
+[gd_scene load_steps=35 format=4 uid="uid://dc5k8auuhrp2p"]
 
 [ext_resource type="Script" path="res://scripts/foreground.gd" id="1_0wsor"]
 [ext_resource type="Texture2D" uid="uid://towkhjg6dm27" path="res://assets/martine/Abyss.png" id="1_rpndc"]

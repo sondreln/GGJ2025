@@ -11348,11 +11348,11 @@ tile_set = SubResource("TileSet_t2uuo")
 position = Vector2(428, 558)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(629, -1828)
+position = Vector2(626, -704)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
-position = Vector2(576, 390)
+position = Vector2(603, -695)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_e4wrj")

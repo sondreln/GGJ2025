@@ -23,7 +23,7 @@ var is_charging_dash = false
 
 # Camera settings
 var camera: Camera2D
-var camera_speed = 20.0 # Pixels per second
+var camera_speed = 40.0 # Pixels per second
 
 # Time accumulator for animations
 var time = 0.0
@@ -49,9 +49,12 @@ func _process(delta):
 
 	# Update bubbles
 	bubble_spawn_timer += delta
-	if bubble_spawn_timer >= bubble_spawn_interval:
-		bubble_spawn_timer = 0.0
-		spawn_bubble()
+	var y_pos_sf = swordfish.position.y
+	if y_pos_sf > -1500:
+		if bubble_spawn_timer >= bubble_spawn_interval:
+			bubble_spawn_timer = 0.0
+			spawn_bubble()
+			print(y_pos_sf)
 
 	for bubble in bubbles:
 		bubble.position.y -= bubble_speed * delta
@@ -135,7 +138,7 @@ func _draw():
 	var bar_height = 10
 	var bar_position = swordfish.position + Vector2(-bar_width / 2, -50)
 	var fill_width = (dash_power / max_dash_power) * bar_width
-
+	
 	# Draw the background of the bar
 	draw_rect(Rect2(bar_position, Vector2(bar_width, bar_height)), Color(0.2, 0.2, 0.2))
 
