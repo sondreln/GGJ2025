@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dgsjeotop543u"]
+[gd_scene load_steps=5 format=4 uid="uid://uw01ysrodl8v"]
 
-[ext_resource type="PackedScene" uid="uid://6ntcwwtf4uj4" path="res://scenes/Planeter.tscn" id="1_qk3m5"]
-[ext_resource type="PackedScene" uid="uid://c85xy560kfr15" path="res://scenes/Blue_tiles.tscn" id="2_fb4f2"]
-[ext_resource type="PackedScene" uid="uid://dhlefkcvkoqb3" path="res://scenes/Black_tiles.tscn" id="3_yadn8"]
-[ext_resource type="PackedScene" uid="uid://cm4jw6cvodgo" path="res://scenes/shipsss.tscn" id="4_uaeda"]
+[ext_resource type="PackedScene" path="res://scenes/Planeter.tscn" id="1_qk3m5"]
+[ext_resource type="PackedScene" path="res://scenes/Blue_tiles.tscn" id="2_fb4f2"]
+[ext_resource type="PackedScene" path="res://scenes/Black_tiles.tscn" id="3_yadn8"]
+[ext_resource type="PackedScene" path="res://scenes/shipsss.tscn" id="4_uaeda"]
 
 [node name="Node2D" type="Node2D"]
 
