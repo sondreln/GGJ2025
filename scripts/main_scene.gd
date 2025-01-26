@@ -38,12 +38,18 @@ var vertical_velocity = 0.0  # Swordfish's current vertical velocity
 # Track whether swordfish is inside *any* bubble
 var fish_in_bubble = false
 
+#sounds
+var wii: AudioStreamPlayer2D
+var charge: AudioStreamPlayer2D
+
 
 func _ready():
 	set_process(true)
 	# Reference the Swordfish and Camera2D nodes
 	swordfish = $Swordfish
 	camera = $Camera2D
+	wii = $Wii
+	charge = $Charge
 
 	# Load the bubble scene for spawning
 	bubble_scene = preload("res://scenes/Bubble.tscn")  # Adjust path if needed
@@ -64,6 +70,8 @@ func _process(delta):
 	if is_charging_dash:
 		# Increase dash power while the spacebar is held, clamped to the maximum power
 		dash_power = clamp(dash_power + delta * 2, 0.0, max_dash_power)
+	else:
+		charge.stop()
 
 	# Only apply gravity if swordfish is NOT in a bubble, below -1700, and not dashing
 	if not fish_in_bubble and swordfish.position.y < -1700 and not dashing:
@@ -94,6 +102,8 @@ func _process(delta):
 
 	# Dashing logic
 	if dashing:
+		charge.stop()
+		wii.play()
 		var direction = (dash_target - swordfish.position).normalized()
 		swordfish.rotation = direction.angle()
 
@@ -158,12 +168,16 @@ func check_collisions():
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_SPACE:
 		if event.pressed:
+			if not charge.playing:
+				charge.play()
 			is_charging_dash = true
 		else:
-			is_charging_dash = false
+			if charge.playing:
+				charge.stop()
 			# Calculate the dash distance based on the charge power
 			var dash_distance = dash_power * 200.0
 			dash_power = 0.0
+			is_charging_dash = false
 
 			# If the fish is currently inside *any* bubble, we allow dashing out
 			if fish_in_bubble:

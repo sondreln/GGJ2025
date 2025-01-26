@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=26 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://d26mpys5a6aly" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Planets/PNGs/Earth-Like planet - Without back glow.png" id="8_n0qve"]
 [ext_resource type="Texture2D" uid="uid://cdyb7pvvbsdt" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="9_56s8i"]
 [ext_resource type="PackedScene" uid="uid://uw01ysrodl8v" path="res://scenes/Space.tscn" id="12_i88wd"]
+[ext_resource type="AudioStream" uid="uid://d3erid6rami8n" path="res://assets/Sound/Jonas WIII 2.mp3" id="14_a2ceq"]
+[ext_resource type="AudioStream" uid="uid://be4jy6gwkr605" path="res://assets/Sound/Nytt opptak 6.mp3" id="15_6hjoq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knj7i"]
 texture = ExtResource("1_rdbjr")
@@ -11392,6 +11394,7 @@ position = Vector2(486, 472)
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-98, -1264)
 stream = ExtResource("6_e4wrj")
+volume_db = -21.79
 autoplay = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -11400,5 +11403,16 @@ offset_top = 234.0
 offset_right = 704.0
 offset_bottom = 304.0
 text = "Watch out for the bubbles. They have air. You are a  fish. You dont like air.."
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-196, -2528)
+stream = ExtResource("15_6hjoq")
+volume_db = 0.495
+pitch_scale = 0.77
+
+[node name="Wii" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-98, -1264)
+stream = ExtResource("14_a2ceq")
+volume_db = 6.933
 
 [connection signal="body_entered" from="Bubble1" to="." method="_on_area_2d_body_entered"]
