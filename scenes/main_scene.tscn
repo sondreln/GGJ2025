@@ -11356,4 +11356,4 @@ stream = ExtResource("6_e4wrj")
 autoplay = true
 
 [node name="Node2D2" parent="." instance=ExtResource("12_i88wd")]
-position = Vector2(515, -4194)
+position = Vector2(490, -4197)
