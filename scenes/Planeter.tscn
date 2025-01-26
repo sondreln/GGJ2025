@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://6ntcwwtf4uj4"]
+
+[ext_resource type="Texture2D" uid="uid://bw0xlumgismfw" path="res://assets/Martine 2/planet1.png" id="1_u35tr"]
+[ext_resource type="Texture2D" uid="uid://vumo23jm0x4" path="res://assets/Martine 2/planet2.png" id="2_jn1gs"]
+[ext_resource type="Texture2D" uid="uid://df72kxe5y41xs" path="res://assets/Martine 2/planet3.png" id="3_3ygjg"]
+[ext_resource type="Texture2D" uid="uid://jcnu763m4pua" path="res://assets/Martine 2/planet4.png" id="4_nn2ua"]
+[ext_resource type="Texture2D" uid="uid://dvtp6gy3451nu" path="res://assets/Martine 2/planet5.png" id="5_1kt0h"]
+[ext_resource type="Texture2D" uid="uid://q8qjf0s182ju" path="res://assets/Martine 2/planet6.png" id="6_nbehv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi3dh"]
+texture = ExtResource("1_u35tr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kaa36"]
+texture = ExtResource("2_jn1gs")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipxq4"]
+texture = ExtResource("3_3ygjg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a7wd0"]
+texture = ExtResource("4_nn2ua")
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqj30"]
+texture = ExtResource("5_1kt0h")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gpvp6"]
+texture = ExtResource("6_nbehv")
+0:0/0 = 0
+1:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hl553"]
+sources/0 = SubResource("TileSetAtlasSource_vi3dh")
+sources/1 = SubResource("TileSetAtlasSource_kaa36")
+sources/2 = SubResource("TileSetAtlasSource_ipxq4")
+sources/3 = SubResource("TileSetAtlasSource_a7wd0")
+sources/4 = SubResource("TileSetAtlasSource_wqj30")
+sources/5 = SubResource("TileSetAtlasSource_gpvp6")
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_set = SubResource("TileSet_hl553")
