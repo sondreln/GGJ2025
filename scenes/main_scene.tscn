@@ -1,5 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cxpgn18h3a26b"]
-[gd_scene load_steps=25 format=4 uid="uid://cxpgn18h3a26b"]
+[gd_scene load_steps=35 format=4 uid="uid://cxpgn18h3a26b"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_415q1"]
 [ext_resource type="Texture2D" uid="uid://raib2800y3ik" path="res://assets/sprites/world_tileset.png" id="1_rdbjr"]
@@ -13,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://ci3wmcx4ynv4" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="7_wbfja"]
 [ext_resource type="Texture2D" uid="uid://d26mpys5a6aly" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Planets/PNGs/Earth-Like planet - Without back glow.png" id="8_n0qve"]
 [ext_resource type="Texture2D" uid="uid://cdyb7pvvbsdt" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="9_56s8i"]
-[ext_resource type="PackedScene" path="res://scenes/Space.tscn" id="12_i88wd"]
-[ext_resource type="AudioStream" uid="uid://bg85t8g2pj0pk" path="res://assets/Sound/Nytt opptak 4,Nytt opptak 5,Nytt opptak 6/Nytt opptak 6.mp3" id="13_02wbn"]
-[ext_resource type="AudioStream" uid="uid://j6ylak75gxrr" path="res://assets/Sound/Jonas WIII 2.mp3" id="14_kgcrt"]
+[ext_resource type="PackedScene" uid="uid://uw01ysrodl8v" path="res://scenes/Space.tscn" id="12_i88wd"]
+[ext_resource type="AudioStream" uid="uid://d3erid6rami8n" path="res://assets/Sound/Jonas WIII 2.mp3" id="14_a2ceq"]
+[ext_resource type="AudioStream" uid="uid://be4jy6gwkr605" path="res://assets/Sound/Nytt opptak 6.mp3" id="15_6hjoq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knj7i"]
 texture = ExtResource("1_rdbjr")
@@ -11330,6 +11329,119 @@ sources/4 = SubResource("TileSetAtlasSource_onr57")
 sources/5 = SubResource("TileSetAtlasSource_bcqkf")
 sources/6 = SubResource("TileSetAtlasSource_is16b")
 
+[sub_resource type="Animation" id="Animation_6oq8w"]
+resource_name = "sidetoside"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(454, -1880), Vector2(695, -1866)]
+}
+
+[sub_resource type="Animation" id="Animation_umb7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(454, -1880)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ahypc"]
+_data = {
+"RESET": SubResource("Animation_umb7j"),
+"sidetoside": SubResource("Animation_6oq8w")
+}
+
+[sub_resource type="Animation" id="Animation_ivntc"]
+resource_name = "cross"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(738, -2073), Vector2(469, -2274)]
+}
+
+[sub_resource type="Animation" id="Animation_qon5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(738, -2073)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avwwh"]
+_data = {
+"RESET": SubResource("Animation_qon5m"),
+"cross": SubResource("Animation_ivntc")
+}
+
+[sub_resource type="Animation" id="Animation_vpggn"]
+resource_name = "circle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(576, -2490), Vector2(753, -2611), Vector2(609, -2744)]
+}
+
+[sub_resource type="Animation" id="Animation_6dwe5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, -2490)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igjfn"]
+_data = {
+"RESET": SubResource("Animation_6dwe5"),
+"circle": SubResource("Animation_vpggn")
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_415q1")
 
@@ -11352,7 +11464,7 @@ tile_set = SubResource("TileSet_t2uuo")
 position = Vector2(428, 558)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(626, -704)
+position = Vector2(592, -1687)
 zoom = Vector2(1.5, 1.5)
 
 [node name="BubbleFriends" type="RichTextLabel" parent="."]
@@ -11368,32 +11480,70 @@ tab_size = 9
 [node name="Bubble1" parent="." instance=ExtResource("4_6op5y")]
 position = Vector2(454, -1880)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble1"]
+libraries = {
+"": SubResource("AnimationLibrary_ahypc")
+}
+autoplay = "sidetoside"
+
 [node name="Bubble2" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(480, -2327)
+position = Vector2(738, -2073)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble2"]
+libraries = {
+"": SubResource("AnimationLibrary_avwwh")
+}
+autoplay = "cross"
 
 [node name="Bubble3" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(695, -2095)
+position = Vector2(576, -2490)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble3"]
+libraries = {
+"": SubResource("AnimationLibrary_igjfn")
+}
+autoplay = "circle"
 
 [node name="Bubble4" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(505, -2738)
+position = Vector2(471, -2936)
 
 [node name="Bubble5" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(754, -2538)
+position = Vector2(638, -3220)
 
 [node name="Bubble6" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(486, -3489)
+position = Vector2(429, -3563)
 
 [node name="Bubble7" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(730, -3255)
+position = Vector2(741, -3525)
 
 [node name="Bubble8" parent="." instance=ExtResource("4_6op5y")]
-position = Vector2(739, -2971)
+position = Vector2(739, -3345)
 
 [node name="Swordfish" parent="." instance=ExtResource("3_phmej")]
-position = Vector2(603, -695)
+position = Vector2(528, -1601)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 475.0
+offset_top = 234.0
+offset_right = 704.0
+offset_bottom = 304.0
+text = "Watch out for the bubbles. They have air. You are a  fish. You dont like air.."
+
+[node name="Wii" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-77, -585)
+stream = ExtResource("14_a2ceq")
+volume_db = 6.933
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-98, -1264)
+position = Vector2(-78, -756)
 stream = ExtResource("6_e4wrj")
-volume_db = -15.352
+volume_db = -21.79
 autoplay = true
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-201, -675)
+stream = ExtResource("15_6hjoq")
+volume_db = 0.495
+pitch_scale = 0.77
+
+[connection signal="body_entered" from="Bubble1" to="." method="_on_area_2d_body_entered"]
